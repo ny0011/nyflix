@@ -58,3 +58,45 @@ $ yarn add react-router-dom
 -> 요 안에 여러 개의 component를 넣으면 됨
 -> Components/Router를 리턴해보자
 ```
+
+### #2.2 React Router Part Two
+
+```
+http://localhost:3000/#/ 에서 #이 hash(#)router라고 생각하면 됨!
+만약 #말고 http://localhost:3000 로 보여지고 싶으면 HashRouter 대신 BrowserRouter를 가져오면 됨.
+HashRouter : 내가 만든 페이지 사용(??). 앱처럼 보이고 싶을 떄
+BrouwserRouter : HTML history API 사용. 브라우저처럼 보이고 싶을 때
+```
+
+```
+Composition : 두개 이상의 Route를 동시에 랜더링하는 방식. React Router에 있는 것임.
+
+/tv외에 /tv/popular도 있다고 해보자
+만약 /tv/popular를 부르면 어떻게 될까?
+/tv, /tv/popular 둘다 모두 render됨. 왜냐면 exact를 빼면 /tv와 /tv/popular 모두 검색되나봐... 문자열 순차 검색을 하는가봄..?
+
+composition을 잘 사용하면 유용하게 쓸 수 있음.
+예를 들어서 공통으로 보여줄 것은 /tv에 정의해두고 /tv/popular에는 popular만의 것을 보여주는 방식으로 사용할 수 있을듯.
+
+Components/Header.js 를 만들어서 App.js에서 Router 위에 선언을 해보자
+Router 바깥에 있으니까 모든 곳에서 Header를 볼 수 있음.
+URL을 바꾸면 Router는 자동으로 새 router를 render함.
+```
+
+```
+Redirect : A 페이지에서 B페이지로 보내는 것.
+
+Router는 맨 위에서 순차적으로 검색하기 때문에 아래 코드는 맨 밑에 써줘야 함!!
+<Redirect from="*" to="/" />
+=> 만약 어떤 router에 접근하려고 하는데 그 페이지를 보여줄 파일이 없다면 / 페이지를 보여주는 것임.
+=> 하지만 composition 때문에 항상 Redirect가 실행돼서 /만 보여주게 됨.
+=> switch를 사용해보자
+```
+
+```
+Switch: 한번에 딱 한 개 router만 render해줌.
+
+/tv/popular를 검색하면 /tv만 보여주게 될 것임
+-> /tv에 exact 옵션을 주자
+-> /tv를 보여주지 않고 /tv/popular만 보여주게 됨.
+```
