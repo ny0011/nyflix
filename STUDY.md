@@ -121,3 +121,29 @@ js파일과 css파일로 기능과 디자인을 따로 구성하지 않고 한 �
 - 모든 Component를 이렇게 만들어야 함 -> 파일 개수가 늘어남
 - 지금 Header.css는 모든 component에서 적용됨. Global임.
 ```
+
+### #3.1 CSS in React part Two
+
+```
+CSS Module을 이용해보자.
+className을 사용해서 css를 global이 아니라 local이 되도록 한다
+create-react-app으로 만든 프로젝트라면
+1. Header.css -> Header.module.css 로 파일명을 변경한다
+2. css파일의 nav class 이름을 navList로 변경한다
+3. Header.js에서 import "./Header.css" -> import styles from "./Header.css"; 로 변경한다
+4. className을 자바스크립트의 오브젝트처럼 사용.
+: <ul className={styles.navList}> 처럼 {} 안에 styles.navList로 class이름을 가져온다
+5. yarn start로 class 이름을 확인해보면 뭔가 달라졌음ㄷㄷ
+=> 그래서 navList를 다른 component에서도 사용할 수 있따!
+
+단점
+- 여전히.. 사용한 class의 이름을 기억해야 함...
+아직 javascript와 css는 분리되어 있음.
+-> 한 파일에서 같이 표현해보자
+- navList는 되지만 .nav-list는 동작하지 않음.
+-> 왜냐면 className={styles.nav-list} 로 -가 들어간 문자를 class이름으로 할 수 없음.
+
+장점
+- 작은 프로젝트라면 괜찮은 방법임.
+
+```
