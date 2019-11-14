@@ -100,3 +100,24 @@ Switch: 한번에 딱 한 개 router만 render해줌.
 -> /tv에 exact 옵션을 주자
 -> /tv를 보여주지 않고 /tv/popular만 보여주게 됨.
 ```
+
+### #3.0 CSS in React part One
+
+```
+예전에 하던대로 styles.css 파일을 만들어서 디자인을 변경할 수도 잇다.
+하지만 react의 component 시스템은 기능과 디자인을 한 곳에서 변경하는 것을 더 선호함.
+js파일과 css파일로 기능과 디자인을 따로 구성하지 않고 한 곳에서 해보자
+
+1. Header 폴더에 Header.js, index.js, Header.css 로 선언하고
+- Header.js에는 Header 내용만 작성
+- Header.css에는 Header의 CSS 내용만 작성
+- index.js에는 Header.js를 불러와서 외부 모듈이 참조할 수 있도록 내보내기를 한다. -> export default Header;
+- index.js가 있기 때문에 App.js에서 "Components/Header/Header"로 선언하지 않아도 됨.
+
+2. App.js 에서 import Header from "Components/Header"; 로 선언하면
+기존처럼 <Header />를 불러올 수 있다
+
+이 방식의 문제점
+- 모든 Component를 이렇게 만들어야 함 -> 파일 개수가 늘어남
+- 지금 Header.css는 모든 component에서 적용됨. Global임.
+```
