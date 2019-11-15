@@ -145,5 +145,34 @@ create-react-app으로 만든 프로젝트라면
 
 장점
 - 작은 프로젝트라면 괜찮은 방법임.
+```
+
+### #3.2 CSS in React part Three
+
+```
+추천하는 방법 : styled-components! 무료 강의 들어보자
+1. Header폴더를 삭제하고 Header.js를 밖으로 빼내자
+2. yarn add styled-components 를 실행시켜서 모듈을 다운로드 받는다
+3. Header.js
+import styled from "styled-components" 로 모듈을 가져온 후 변수 List를 만든다
+4. List를 ul 태그 대신에 List 태그로 선언해서 서버를 재실행한다
+5. 깔끔!하게 잘 된다
+
+javascript 안에 CSS가 있어서 편함.
+```
+
+```
+https://velopert.com/3417
+a href 태그를 변환할 때 react-router-dom의 Link를 사용하면 페이지를 새로 불러오지 않고 원하는 route로 화면 전환해줌.
+
+const SLink = styled(Link)``;
+```
+
+```
+You should not use <Link> outside a <Router> 라는 에러 발생!
+App.js의 <Header>를 Router 안에서 사용하도록 바꿔주자
+1. App.js의 Header 부분을 모두 지운다
+2. Router.js에서 Header.js를 import하고 <Router>는 component 딱 하나만 올 수 있음
+-> Fragment Component(<></>)를 사용해서 <Switch>위에 <Header>를 선언한다.
 
 ```
