@@ -174,5 +174,29 @@ App.js의 <Header>를 Router 안에서 사용하도록 바꿔주자
 1. App.js의 Header 부분을 모두 지운다
 2. Router.js에서 Header.js를 import하고 <Router>는 component 딱 하나만 올 수 있음
 -> Fragment Component(<></>)를 사용해서 <Switch>위에 <Header>를 선언한다.
+vscode-styled-components extension을 다운로드 받자
+```
+
+### #3.3 GlobalStyles and Header
+
+```
+Styled-Component는 일반적으로 local(한 파일에서만 사용할 수 있따)임
+Global하게 바꿔보자(사이트의 폰트를 같게 하거나 일괄 설정 하고싶을 때가 있을거임)
+-> styled-reset을 사용해보자!
+```
+
+```
+styled-reset : SC를 이용해서 css를 초기화해서 0의 상태로 만들어줌.
+1. $ yarn add styled-reset
+2. GlobalStyles.js 파일 생성
+3. styled-component에서 createGlobalStyle, styled-reset에서 reset 모듈을 가져온다
+4. 변수를 통해 모든 화면에 해당 CSS가 적용되도록 설정한다.
+
+외부로 내보내기
+1) export default globalStyles; 를 해주면 외부에서 해당 component를 사용하게 됨.
+2) export default()=>createGloabalStyle``;
+
+전역 Component로 등록하기 : App.js에서 <Router> 밑에 GlobalStyle을 써준다.
+
 
 ```
