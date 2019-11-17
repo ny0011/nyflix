@@ -200,3 +200,37 @@ styled-reset : SC를 이용해서 css를 초기화해서 0의 상태로 만들�
 
 
 ```
+
+### #3.4 Location Aware Header
+
+```
+Header가 어떤 Route에 있는지를 표시하도록 만들어보자
+예를 들어서 TV route에 있으면 TV밑에 border-bottom을 주자!
+1) props값으로 SC 내부의 CSS 속성을 변화시켜본다
+2) 현재 위치가 어딘지 알아서 props 값을 바꾼다
+
+1)
+1. Header.js > Item에 border-bottom 기본값을 설정한다.
+2. Item에 props를 주자.
+모든 Item에 current={true}로 설정한다. current값이 true, false에 따라 border-bottom 값을 변경할 계획임.
+3. Item의 transparent대신에 조건문을 써준다
+${props => (props.current ? "#3498db" : "transparent")}
+4. Item의 current값을 수정해준다.
+
+이렇게 하면 SC 외부에서 내부로 props를 전달할 수 있다.
+
+2)
+1. react-router-dom의 withRouter 모듈을 가져온다
+withRouter : 다른 컴포넌트를 감싸는 컴포넌트. router에게 정보를 준다
+https://thebook.io/006946/ch16/07-01/
+https://react-router.vlpt.us/1/05.html
+route가 아닌 컴포넌트에서 router에서 사용하는 객체(location, match, history)를 사용할 때 쓰는 coponent.
+2. <Header></Header>의 모든 내용을 withRouter()로 감싼다.
+그래서 실제로 export하는 것은 withRouter()임.
+withRouter()덕분에 props에 접근할 수 있음.
+3. HeaderComponent는 withRouter의 props를 전달받게 된다.
+console.log(props)로 확인해보면 history, location, match를 갖고 잇음.
+4. location의 pathname을 가져온다. -> Spread Operator를 사용한다
+{ location: { pathname } }
+
+```
