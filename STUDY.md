@@ -234,3 +234,47 @@ console.log(props)로 확인해보면 history, location, match를 갖고 잇음.
 { location: { pathname } }
 
 ```
+
+### #4.0 Introduction to The Movie DB API
+
+```
+1. 영화 데이터는 the movie db API를 사용할 것임.
+https://www.themoviedb.org/
+settings > API 에서 API key(v3)을 복사한다
+2. API가 어떤 값을 주는지 알아보자
+https://developers.themoviedb.org/3
+3. 아래 링크의 try it out에서 어떤 형식으로 request를 보내고 response를 받는지 확인할 수 있음
+https://developers.themoviedb.org/3/movies/get-popular-movies
+```
+
+### #4.1 Sexy Networking with Axios Instances
+
+```
+API로 서버에서 데이터를 받아오자!
+만들 목록은 Readme.md에 추가해둠.
+fetch로 모든 Component에서 Api를 불러도 되지만 그러면 fetch를 여러번 부르게 되어 번거로움.
+-> network와 API만 다루는 새 파일을 만들어보자
+-> src/api.js
+```
+
+```
+1. axios 패키지를 추가한다
+axios는 HTTP Request를 다루기 좋음.
+$ yarn add axios@0.18.1
+
+2. api.js
+import axios from "axios";
+
+// 서버에 보낼 내용을 적는다. url과 공통으로 사용되는 내용은 params에 넣는다.
+const api = axios.create({})
+
+// /tv/popular로 보내면 안됨. /가 앞에 있으면 절대경로를 찾게 됨.
+// 상대경로로 찾기 위해서 바로 문자를 적는다
+api.get("tv/popular");
+
+3. 확인은
+api.js : export default api
+index.js : import "./api"
+로 debug > network 에서 확인할 수 있다
+axios로 처리하면 깔끔함!
+```
