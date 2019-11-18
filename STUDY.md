@@ -280,3 +280,20 @@ axios로 처리하면 깔끔함!
 ```
 
 ### #4.2 API Verbs part One
+
+### #4.3 API Verbs part Two
+
+```
+나머지 API들을 추가해주자
+그리고 details들은 append to response를 지원함.
+https://developers.themoviedb.org/3/getting-started/append-to-response
+
+append to response는 api.get(,{params: {append_to_response: "videos"}}) 로 params 안에 추가해준다.
+
+search할 때 query도 마찬가지.
+대신에 string이라서 스페이스나 느낌표같은 문자는 %20과 같이 바뀐다.
+왜냐하면 uri가 인식하는 문자는 string이 아니기 때문.
+제대로 uri가 인식하도록 인코딩하자
+=> encodeURIComponent()
+
+```
