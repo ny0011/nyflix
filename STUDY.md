@@ -297,3 +297,35 @@ search할 때 query도 마찬가지.
 => encodeURIComponent()
 
 ```
+
+### #5.0 Container Presenter Pattern part One
+
+```
+작은 프로젝트라면 각 component가 state를 갖고 잇어서 state가 갱신될 때 api에서 데이터 가져오고 데이터를 렌더링 할 것.
+하지만 작은 프로젝트 아니라면?
+=> Container Presenter Pattern 으로 Api 데이터를 가져오자
+
+- container(data)가 data, state를 갖고 있어서 api를 불러온다
+- presenter(style)가 data를 보여주는 역할을 한다.
+- 하지만 presenter는 state, api, class 등등 없고 그냥 함수형 컴포넌트임.
+=> 4개 route(Routes 내부의 .js파일들)를 위해 모든 컨테이너와 프리젠터를 만들어보자
+
+1. src/Routes에서 폴더를 만든다
+Detail, Home, Search, TV
+2. 만든 폴더에 index.js를 만든다(export를 쉽게하려고)
+3. Home 폴더에 HomeContainer.js를 만든다
+4. Home/index.js에서 HomeContainer를 가져오고 내보낸다
+5. HomeContainer는 state를 가진 react component가 됨.
+6. HomeContainer.js에 HomePresenter를 가져오고 HomePresenter.js를 만든다
+7. Routes/Home.js는 삭제한다
+
+Home
+ㄴ index.js
+ㄴ HomeContainer.js
+ㄴ HomePresenter.js
+
+Router.js에서 Home을 찾을 때 index.js가 있기 때문에 Router.js의 import를 바꾸지 않아도 됨.
+index.js 가 default로 HomeContaiger.js를 불러오고 HomeContaiger.js가 렌더링될 때 HomePresenter.js를 부름.
+결국 보여주는 화면은 HomePresenter.js다.
+
+```
