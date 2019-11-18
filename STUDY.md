@@ -278,3 +278,5 @@ index.js : import "./api"
 로 debug > network 에서 확인할 수 있다
 axios로 처리하면 깔끔함!
 ```
+
+### #4.2 API Verbs part One
