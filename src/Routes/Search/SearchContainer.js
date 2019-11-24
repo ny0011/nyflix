@@ -1,5 +1,6 @@
 import React from "react";
 import SearchPresenter from "./SearchPresenter";
+import { moviesApi, tvApi } from "../../api";
 
 // 첫 화면에는 검색하지 않았으니까 false로 아무것도 띄우지 않는다.
 // searchTerm에 어떤 단어가 들어오면 loading : true -> false로 바뀌고
@@ -13,8 +14,43 @@ export default class extends React.Component {
     loading: false
   };
 
+  handleSubmit = () => {
+    const { searchTerm } = this.state;
+
+    if (searchTerm !== "") {
+      this.searchByTerm();
+    }
+  };
+
+  searchByTerm = async () => {
+    const { searchTerm } = this.state;
+    this.setState({
+      loading: true
+    });
+    try {
+      const {
+        data: { results: movieResults }
+      } = await moviesApi.search(searchTerm);
+      const {
+        data: { results: tvResults }
+      } = await tvApi.search(searchTerm);
+      console.log(movieResults, tvResults);
+      this.setState({
+        movieResults,
+        tvResults
+      });
+    } catch {
+      this.setState({ error: "Can't find results." });
+    } finally {
+      this.setState({
+        loading: false
+      });
+    }
+  };
+
   render() {
     const { movieResults, tvResults, searchTerm, error, loading } = this.state;
+
     return (
       <SearchPresenter
         movieResults={movieResults}
@@ -22,6 +58,7 @@ export default class extends React.Component {
         searchTerm={searchTerm}
         error={error}
         loading={loading}
+        handleSubmit={this.handleSubmit}
       />
     );
   }

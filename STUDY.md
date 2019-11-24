@@ -367,3 +367,40 @@ componentDidMount = async() => {
 
   }
 ```
+
+### #5.4 Search Container
+
+```
+기능
+1. handleSubmit : form에서 검색할 단어를 적고 Enter할 때 실행됨.
+- 1) searchTerm이 빈칸인지 확인
+- 2) 빈칸이 아니면 search 함수(searchByTerm)를 실행
+2. searchByTerm
+- try :
+- 1) 누군가 검색하려고 엔터를 누르면 loading:true로 만듦(로딩화면 띄우기)
+- 2) api로 데이터 받아오기
+- 3) state에 데이터 저장하기
+- finally:
+- 4) loading:false 로 끝내기
+
+디버깅 하려면?
+1. state의 searchTerm:"ddd" 값을 준다
+2.  componentDidMount() {
+    this.handleSubmit();
+  }
+  로 렌더링 후에 handleSubmit()을 불러오도록 한다
+3. render()에서 console.log(this.state); 을 찍어본다
+
+이렇게 만든 handleSubmit은 SearchPresenter에서 폼을 제출하려고 Enter를 누를 때 이벤트로 사용된다.
+-> SearchPresenter로 handleSubmit 함수를 보내준다
+-> searchTerm 변수를 가져오는 함수는 나중에 만들 것임
+```
+
+```
+Detail 페이지에 접근하도록 라우터에 추가해보자
+(/movie/12 로 이동할 수 있도록.. 12는 id값임)
+Router.js
+<Route path="/movie/:id" component={Detail}></Route>
+
+- ':id' 자리에 어떤 값이 들어오더라도 모두 Detail 라우트에 보낼 것임.
+```
