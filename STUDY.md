@@ -404,3 +404,23 @@ Router.js
 
 - ':id' 자리에 어떤 값이 들어오더라도 모두 Detail 라우트에 보낼 것임.
 ```
+
+### #5.5 Detail Container part One
+
+```
+Header.js에서는 withRouter()를 이용해서 location을 알 수 있었다
+왜냐면 헤더는 라우트가 아니니까 바로 props를 얻을 수 없기 때문임.
+하지만 Home, Detail 같이 Routes폴더 밑에있는 라우트는 라우터가
+props를 전달하기 때문에 withRouter()를 사용하지 않아도 됨.
+
+기능 flow
+1. /movie 에서 왔는지 /show 에서 왔는지 확인
+2. /movie 뒤에 어떤 숫자가 왔는지 파악
+- 숫자만 오도록 설정하기
+   const parsedId = parseInt(id);
+    if (isNaN(parsedId)) { // 숫자가 아닌 다른 문자가 들어오면 NaN이 됨.
+    // props의 history의 push함수. 다른 라우터로 이동하게 한다. return으로 함수를 강제 종료함.
+      return push("/");
+    }
+- push 후 return을 하지 않으면 push 이후의 명령어가 실행되기 때문.
+```

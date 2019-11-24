@@ -46,7 +46,6 @@ export default class extends React.Component {
   // object destructuring(객체 비구조화 할당)
   render() {
     const { nowPlaying, upcoming, popular, error, loading } = this.state;
-    console.log(this.state);
     return (
       <HomePresenter
         nowPlaying={nowPlaying}
