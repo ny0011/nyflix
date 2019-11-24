@@ -333,3 +333,27 @@ index.js 가 default로 HomeContaiger.js를 불러오고 HomeContaiger.js가 렌
 ### #5.1 Container Presenter Pattern part Two
 
 - 네가지 route container를 모두 만들었다!
+- 근데 손이 아프다...
+
+### #5.2 Home Container
+
+- await(ES6 script)
+- try-catch-finally
+
+```
+목표
+1. mount 후 api 실행
+2. api에서 값을 받아서 state 설정함
+3. 에러가 있으면 loading : false
+
+1. componentDidMount()를 사용한다
+2. try-catch-finally 구문으로 에러를 받아보자
+- try에서는 에러가 발생할 수 있는 구문을 넣음.
+-> api가 데이터를 얻어올 수 있도록 비동기 처리
+(async componentDidMount, await moviesApi.nowPlaying())
+-> Object Deconstruction
+- catch에서 에러를 얻어서 보여주는 처리를 함
+- finally에서 try, catch 중 뭐가 끝났든 마지막에 처리할 구문을 넣음.
+-> 지금은 loading: false로 해줄 것임.
+
+```
