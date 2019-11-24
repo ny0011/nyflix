@@ -357,3 +357,13 @@ index.js 가 default로 HomeContaiger.js를 불러오고 HomeContaiger.js가 렌
 -> 지금은 loading: false로 해줄 것임.
 
 ```
+
+### #5.3 TV Container
+
+```
+async componentDidMount{}
+아래와 위는 같은 구문!
+componentDidMount = async() => {
+
+  }
+```
