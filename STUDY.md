@@ -424,3 +424,22 @@ props를 전달하기 때문에 withRouter()를 사용하지 않아도 됨.
     }
 - push 후 return을 하지 않으면 push 이후의 명령어가 실행되기 때문.
 ```
+
+### #5.6 Detail Container part Two
+
+```
+1. string 데이터에 특정 문자열이 있는지 검색해보자
+-> string.includes()
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+
+2.  constructor를 만들자
+1) constructor 내부로 state를 옮겨서 클래스가 생성될 때 변수들을 설정한다
+2) isMovie를 state 안으로 옮긴다
+3) const {isMovie} = this.state; 이렇게 isMovie 값을 불러올 수 있따
+
+3. isMovie인지 아닌지에 따라 api를 다르게 불러온다.
+const request = await moviesApi.movieDetail(parsedId);
+result = request.data
+이것도 되지만 다른 방법은 없을까?
+
+```
