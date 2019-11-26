@@ -446,6 +446,29 @@ result = request.data
 
 ### #6.0 Presenter Structure
 
+-   presenter 추가하자
+
+### #6.1 HomePresenter and Section Components
+
 ```
-presenter  추가하자
+1. section을 추가하자!
+-> upcoming movies section 안에 관련 영화들을 보여줌. 내용을 감싸는 것..
+Components/Section.js
+1) ({title, children})
+- children : 예약된 react prop. component 내부에 위치하는 component들이 저장된 변수.
+https://github.com/yannickcr/eslint-plugin-react/issues/7#issuecomment-90294004
+2) title과 children을 화면에 출력한다
+
+2. HomePresenter.js에서 화면을 어떻게 보여줄지 정한다.
+화면에 바로 nowPlaying 값을 보여주게 되면 render가 되기 전에는 값이 없어서 에러가 발생한다.
+-> loading 변수로 render()가 끝났는지 확인해보자
+
+3. Section을 HomePresenter로 불러온다
+1) 데이터를 Section으로 가져와서 Section에서 정의한대로 보여준다
+
+아래것은 찾아보자
+:not(:last-child) {
+		margin-bottom: 50px;
+	}
+
 ```
