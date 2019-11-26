@@ -332,13 +332,13 @@ index.js 가 default로 HomeContaiger.js를 불러오고 HomeContaiger.js가 렌
 
 ### #5.1 Container Presenter Pattern part Two
 
-- 네가지 route container를 모두 만들었다!
-- 근데 손이 아프다...
+-   네가지 route container를 모두 만들었다!
+-   근데 손이 아프다...
 
 ### #5.2 Home Container
 
-- await(ES6 script)
-- try-catch-finally
+-   await(ES6 script)
+-   try-catch-finally
 
 ```
 목표
@@ -442,4 +442,10 @@ const request = await moviesApi.movieDetail(parsedId);
 result = request.data
 이것도 되지만 다른 방법은 없을까?
 
+```
+
+### #6.0 Presenter Structure
+
+```
+presenter  추가하자
 ```
