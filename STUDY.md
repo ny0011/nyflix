@@ -332,13 +332,13 @@ index.js 가 default로 HomeContaiger.js를 불러오고 HomeContaiger.js가 렌
 
 ### #5.1 Container Presenter Pattern part Two
 
--   네가지 route container를 모두 만들었다!
--   근데 손이 아프다...
+- 네가지 route container를 모두 만들었다!
+- 근데 손이 아프다...
 
 ### #5.2 Home Container
 
--   await(ES6 script)
--   try-catch-finally
+- await(ES6 script)
+- try-catch-finally
 
 ```
 목표
@@ -444,9 +444,24 @@ result = request.data
 
 ```
 
+### #5.7 Destructuring assignment with let
+
+```
+const request = await moviesApi.movieDetail(parsedId);
+result = request.data
+대신에
+({ data: result } = await moviesApi.movieDetail(parsedId));
+요렇게 바꾸자!
+괄호 안에서 저렇게 하면 되나봄... 싱기..
+https://javascript.info/destructuring-assignment
+괄호가 예약어라서 함수(){} 의 code block으로 인식하는 것을 막기 위해서 전체 등식에 괄호를 해주면
+destructuring assignment가 되나봄
+
+```
+
 ### #6.0 Presenter Structure
 
--   presenter 추가하자
+- presenter 추가하자
 
 ### #6.1 HomePresenter and Section Components
 
