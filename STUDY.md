@@ -487,3 +487,16 @@ https://github.com/yannickcr/eslint-plugin-react/issues/7#issuecomment-90294004
 	}
 
 ```
+
+### #6.2 TVPresenter and Loader Components
+
+```
+1. loading이 true일 때 보여줄 화면이 null이면 심심하니까 Loader.js를 만들어주자
+- ⏰ 이모지는 span으로 감싸야 함
+
+2. Section.js에서 display:grid로 설정해주고 다른 설정 값을 해주면 화면 분할을 쉽게 할 수 있음
+https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout
+
+3. HomePresenter에는 movie.title이 grid의 한 부분씩 나눠서 갖도록 span 태그로 감싼다.
+(grid 한 블록에 movie.title이 하나 들어간다. span 태그로 감싸지 않으면 grid 한 블록에 title 전체가 들어감.)
+```
