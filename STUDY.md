@@ -332,13 +332,13 @@ index.js 가 default로 HomeContaiger.js를 불러오고 HomeContaiger.js가 렌
 
 ### #5.1 Container Presenter Pattern part Two
 
-- 네가지 route container를 모두 만들었다!
-- 근데 손이 아프다...
+-   네가지 route container를 모두 만들었다!
+-   근데 손이 아프다...
 
 ### #5.2 Home Container
 
-- await(ES6 script)
-- try-catch-finally
+-   await(ES6 script)
+-   try-catch-finally
 
 ```
 목표
@@ -461,7 +461,7 @@ destructuring assignment가 되나봄
 
 ### #6.0 Presenter Structure
 
-- presenter 추가하자
+-   presenter 추가하자
 
 ### #6.1 HomePresenter and Section Components
 
@@ -499,4 +499,22 @@ https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout
 
 3. HomePresenter에는 movie.title이 grid의 한 부분씩 나눠서 갖도록 span 태그로 감싼다.
 (grid 한 블록에 movie.title이 하나 들어간다. span 태그로 감싸지 않으면 grid 한 블록에 title 전체가 들어감.)
+```
+
+### #6.3 SearchPresenter Component
+
+```
+Search 화면을 만들어보자!
+1. 문자열 입력을 받을 수 있게 Form, Input 태그를 만든다
+2. Input value로 searchTerm을 사용한다
+-> 사용자의 입력을 받아서 Search Container에 넘겨서 입력한 내용을 찾을 수 있게 해야하기 때문임
+3. Input에 키보드를 치면 문자가 나오지 않음
+- 1) 입력할 때마다 값을 update하는 function을 안 만들었기 때문임
+- 2) 그리고 엔터를 치면(Submit) Input에 적어둔 값이 사라짐
+-> 위의 두 문제를 해결해보자 : Submit 이벤트를 가로채서 내가 다시 작성해보자
+2)는 submit event가 일어나지 않도록 막자
+  event.preventDefaunt();
+1) SearchContainter 에서 키보드 입력이 있을 때 문자를 화면에 보여주는 updateTerm을 만들자
+키보드 입력을 받을 때 입력한 문자열 전체를 searchTerm이 저장하게 됨.
+
 ```
