@@ -518,3 +518,11 @@ Search 화면을 만들어보자!
 키보드 입력을 받을 때 입력한 문자열 전체를 searchTerm이 저장하게 됨.
 
 ```
+
+### #6.4 Message Component
+
+```
+error text, not found text를 만들어보자
+Message.js를 만들어서 얘가 모든 component의 error, not found message를 보여주게하자
+debug : Container.js의 try구문에서 throw Error() 를 던지고 Presenter.js에서 <Message> 를 부른다
+```
