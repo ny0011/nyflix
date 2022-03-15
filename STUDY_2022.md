@@ -14,6 +14,7 @@
 
 #### CSS scale
 
+- https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale()
 - scale을 사용할 때 기본축(transform-origin)이 현재 크기의 가운데 값임
   - (x y z) = (50% 50% 0)
 - 왼쪽 위의 좌표가 (0, 0)이고 가운데가 50%, 50%이 되는 구조
@@ -26,3 +27,23 @@
   originY: "50%",
   scale: [1, 1.2, 1],
   ```
+
+## CSS
+
+### 어떤 tag를 가운데에 두고싶으면?
+
+- 아래처럼 설정
+  ```
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  ```
+
+## React Router
+
+### 현재 URL의 router 위치를 알고 싶을 때?
+
+- useRouteMatch() hooks를 사용
+  - https://v5.reactrouter.com/web/api/Hooks/useroutematch
+  - '/'는 항상 match되어서 isExact 값으로 체크함
