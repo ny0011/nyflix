@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+name: Dependabot auto-approve
+
+# Controls when the workflow will run
+on: pull_request_target
+
+permissions:
+  pull-requests: write
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  dependabot:
+    runs-on: ubuntu-latest
+    # Always check the actor is Dependabot to prevent your workflow from failing on non-Dependabot PRs
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Approve a PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
