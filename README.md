@@ -1,22 +1,14 @@
-# React Js nomflix
+# React Masterclass
 
-Learning Reat and ES6 by building a Movie Discovery App.
+Learn and dominate the React ecosystem once and for all.
 
-## Screens
+### Using:
 
-- [ ] Home
-- [ ] TV Shows
-- [ ] Search
-- [ ] Detail
-
-## API Verbs
-
-- [x] Now Playing(Movie)
-- [x] Upcoming(Movie)
-- [x] Top Rated(TV)
-- [x] Popular(TV, Movie)
-- [x] Airing Today(TV)
-- [x] TV Show Detail
-- [x] Movie Detail
-- [ ] Search Movies
-- [ ] Search TV
+- Styled Components
+- Recoil
+- React Query
+- React Router DOM
+- Apex Charts
+- React Spring
+- Typescript
+- Firebase
