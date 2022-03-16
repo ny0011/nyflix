@@ -90,3 +90,12 @@
   ```
   basename={process.env.PUBLIC_URL}
   ```
+
+## React Query
+
+### 사용 방법
+
+1. QueryClient() 인스턴스 생성
+2. QueryClientProvider에 client로 인스턴스 등록
+3. QueryClientProvider 안에 React Query를 사용하는 component를 두기
+4. component 내에서 useQuery 사용
