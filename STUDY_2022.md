@@ -76,6 +76,15 @@
   margin: 0 auto;
   ```
 
+### 배경 위에 텍스트가 잘 안보일 때?
+
+- background-color에 linear-gradient를 추가
+  ```
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+  url(${(props) => props.bgPhoto});
+  ```
+  - 이미지 위에 linear-gradient 색이 덮어 씌워짐.
+
 ## React Router
 
 ### 현재 URL의 router 위치를 알고 싶을 때?
