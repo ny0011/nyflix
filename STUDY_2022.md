@@ -68,6 +68,11 @@
 
 - React 트리에서 component가 제거될 때의 애니메이션을 주는 것
 - component에서 key 값이 변경되면 trigger돼서 exit -> initial -> animate 순으로 움직임
+- onClick 시 애니메이션이 동작하고 있을 때 다시 클릭 입력이 되는 걸 막기 위해 leaving이 true면 return 처리함
+- 애니메이션이 끝났을 때 leaving이 끝났으니 false로 변경해야 함
+  - `onExitComplete` prop를 사용하면 모든 node의 애니메이션 동작이 끝났을 때 어떤 일을 할지 지정할 수 있음
+- 새로 고침하면 애니메이션이 실행돼서 움직이게 되는데 처음에는 애니메이션 동작을 안하게 하고 싶음
+  - `initial={false}`로 지정하면 애니메이션이 동작하지 않음
 
 ## CSS
 
