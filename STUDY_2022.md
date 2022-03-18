@@ -64,6 +64,11 @@
 
    ```
 
+### AnimatePresence
+
+- React 트리에서 component가 제거될 때의 애니메이션을 주는 것
+- component에서 key 값이 변경되면 trigger돼서 exit -> initial -> animate 순으로 움직임
+
 ## CSS
 
 ### 어떤 tag를 가운데에 두고싶으면?
