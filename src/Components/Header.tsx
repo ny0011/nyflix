@@ -128,7 +128,7 @@ function Header() {
   const { scrollY } = useViewportScroll();
   useEffect(() => {
     scrollY.onChange(() => {
-      if (scrollY.get() > 100) {
+      if (scrollY.get() > 30) {
         navAnimation.start("scroll");
       } else {
         navAnimation.start("top");
